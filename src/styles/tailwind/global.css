@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Playfair+Display&display=swap');
+
+@layer base {
+  body {
+    font-size: 15px;
+    line-height: 1.2;
+    @apply bg-grey;
+    @apply font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply antialiased;
+    @apply font-serif;
+    margin: 0.5em 0 0.35em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-botom: 0;
+    }
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  h3 {
+    color: #718198;
+    @apply font-sans;
+  }
+
+  @media screen(md) {
+    h2 {
+      font-size: 25px;
+    }
+  }
+
+  p {
+    @apply my-2;
+  }
+}

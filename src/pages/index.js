@@ -1,3 +1,5 @@
+import 'normalize.css';
+import '../styles/global.scss';
 import React, { useState, useEffect } from 'react';
 import { GridMasonry2, NavPrimary } from '@components';
 

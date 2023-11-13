@@ -1,0 +1,31 @@
+@use '@core' as Core;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Playfair+Display&display=swap');
+
+body {
+  font-size: map-get(Core.$site, 'font-size--m');
+  font-family: map-get(Core.$site, 'font-body');
+  color: map-get(Core.$brand, 'black');
+  line-height: 1.2;
+  background-color: map-get(Core.$brand, 'grey');
+  @include Core.breakpoint(md) {
+    font-size: map-get(Core.$site, 'font-size--d');
+  }
+}
+
+button {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+
+  svg path {
+    fill: currentColor;
+  }
+}
+
+img,
+svg {
+  max-width: 100%;
+}

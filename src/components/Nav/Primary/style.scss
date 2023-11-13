@@ -1,0 +1,87 @@
+@use '@core' as Core;
+
+$sticky: false;
+.nav_primary {
+  // Ready for if feedback asks for a sticky nav
+  @if ($sticky == true) {
+    position: sticky;
+    top: 0;
+  }
+
+  display: flex;
+  padding: 25px 32px;
+  margin-bottom: 48px;
+  gap: 2em;
+  background-color: map-get(Core.$brand, 'white');
+  @include Core.breakpoint(md) {
+    padding: 2.1em 2.2em;
+    margin-bottom: 102px;
+  }
+
+  &-about {
+    color: map-get(Core.$brand, 'platinum');
+    cursor: pointer;
+    transition: all map-get(Core.$site, 'transition');
+    @include Core.hover {
+      color: map-get(Core.$brand, 'gold');
+    }
+  }
+
+  &-liked {
+    margin-left: calc(1em + 2px);
+    background-color: map-get(Core.$brand, 'grey');
+    border-radius: 999px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    svg {
+      path {
+        fill: none;
+        stroke: map-get(Core.$brand, 'gold');
+      }
+    }
+  }
+
+  &-list {
+    display: none;
+    @extend %antialias;
+    @include Core.breakpoint(md) {
+      display: flex;
+      gap: calc(1em + 2px);
+      font-size: map-get(Core.$site, 'font-size--d') - 4;
+    }
+  }
+
+  &-list_item_left {
+    display: flex;
+    align-items: center;
+  }
+
+  &-logo {
+    flex-grow: 1;
+
+    a {
+      display: inline-flex;
+      height: 100%;
+      align-items: center;
+    }
+  }
+
+  &-menu_btn {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    max-width: 27px;
+    @include Core.breakpoint(md) {
+      display: none;
+    }
+
+    svg {
+      width: 100%;
+    }
+  }
+}

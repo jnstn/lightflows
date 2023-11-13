@@ -1,0 +1,29 @@
+@use '../../vars' as Vars;
+
+@mixin breakpoint($size: lg, $direction: up) {
+  $width: null;
+
+  /* 
+    Store width value as a variable based
+    upon whether the size input is a string
+    or a pixel value
+   */
+  @if (type-of($size) == string) {
+    $width: map-get(Vars.$breakpoint, $size);
+  }
+  @if (type-of($size) == number) {
+    $width: $size;
+  }
+
+  /* Output media queries */
+  @if ($direction == up) {
+    @media (min-width: $width) {
+      @content;
+    }
+  }
+  @if ($direction == down) {
+    @media (max-width: #{$width - 1}) {
+      @content;
+    }
+  }
+}

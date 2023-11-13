@@ -1,20 +1,21 @@
+import './style.scss';
 import React from 'react';
 import { ImageLogo, ImageMenu, ImageHeartUnfilled } from './Images';
 
 const NavPrimary = () => {
   return (
-    <nav className="nav_primary flex items-center justify-between flex-nowrap gap-x-6 p-2 lg:py-3 lg:px-2.5 sticky top-0 bg-white">
+    <nav className="nav_primary">
       {/* Logo */}
-      <div className="nav_primary-logo flex items-center text-white w-full max-w-[250px] h-[auto]">
+      <div className="nav_primary-logo">
         <a href="/">
           <ImageLogo />
         </a>
       </div>
 
       {/* Menu Icon */}
-      <div className="nav_primary-menu block lg:hidden">
+      <div className="nav_primary-menu">
         <button
-          className="flex items-center text-platinum hover:text-gold"
+          className="nav_primary-menu_btn"
           aria-label="Menu"
         >
           <ImageMenu />
@@ -22,16 +23,16 @@ const NavPrimary = () => {
       </div>
 
       {/* Menu List */}
-      <ul className="nav_primary-list w-full hidden flex-grow lg:flex lg:items-center lg:w-auto">
-        <li className="nav_primary-list_item text-sm lg:flex-grow text-end">
+      <ul className="nav_primary-list">
+        <li className="nav_primary-list_item nav_primary-list_item_left">
           <button
-            className="block mt-1 lg:inline-block lg:mt-0 text-platinum hover:text-gold mr-1"
+            className="nav_primary-about"
             aria-label="About Us"
           >
             About Us
           </button>
           <button
-            className="inline-block rounded-full p-1 bg-grey mr-1"
+            className="nav_primary-liked"
             aria-label="Liked Products"
           >
             <ImageHeartUnfilled />
@@ -40,7 +41,7 @@ const NavPrimary = () => {
 
         <li className="nav_primary-list_item">
           <button
-            className="inline-block text-sm px-1 py-1 leading-none border text-gold border-gold hover:border-transparent hover:text-white hover:bg-gold"
+            className="btn btn--gold"
             aria-label="Contact Sales"
           >
             Contact Sales

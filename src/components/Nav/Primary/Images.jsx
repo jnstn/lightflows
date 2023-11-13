@@ -3,7 +3,7 @@ import React from 'react';
 const ImageLogo = () => {
   return (
     <svg
-      className="w-full"
+      className=""
       width="250"
       height="18"
       viewBox="0 0 250 18"
@@ -21,7 +21,7 @@ const ImageLogo = () => {
 const ImageMenu = () => {
   return (
     <svg
-      className="fill-current h-6 w-6"
+      className=""
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
     >

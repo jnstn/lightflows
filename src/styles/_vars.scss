@@ -1,0 +1,29 @@
+$brand: (
+  'black': #000000,
+  'gold': #ab8e66,
+  'grey': #f7f8fa,
+  'white': #ffffff,
+  'platinum': #718198,
+);
+
+$breakpoint: (
+  'xs': 414px,
+  'sm': 568px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1220px,
+);
+
+$site: (
+  'font-size--m': 15px,
+  'font-size--d': 18px,
+  'font-body': (
+    'Inter',
+    'sans-serif',
+  ),
+  'font-heading': (
+    'Playfair Display',
+    'serif',
+  ),
+  'transition': 0.15s ease-out,
+);

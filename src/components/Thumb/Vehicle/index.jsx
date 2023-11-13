@@ -89,7 +89,6 @@ const footer = data => {
 
 const ThumbVehicle = ({ className = '', data, addMargin }) => {
   const clsMarginTop = addMargin ? ' md:top-[10em]' : '';
-  console.log(className);
 
   return (
     <div className={`thumb_vehicle ${className}`}>

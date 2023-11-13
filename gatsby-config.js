@@ -10,6 +10,7 @@ module.exports = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    'gatsby-plugin-sass',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -25,6 +26,7 @@ module.exports = {
         alias: {
           '@components': path.resolve(__dirname, 'src/components'),
           '@images': path.resolve(__dirname, 'src/images'),
+          '@core': path.resolve(__dirname, 'src/styles/core.scss'),
         },
       },
     },

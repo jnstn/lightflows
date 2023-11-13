@@ -1,1 +1,1 @@
-import './src/styles/tailwind/global.css';
+// import './src/styles/tailwind/global.css';

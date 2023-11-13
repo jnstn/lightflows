@@ -1,0 +1,47 @@
+@use '@core' as Core;
+
+.btn {
+  font-size: map-get(Core.$site, 'font-size--d') - 4;
+  padding: 0.77em 1.18em;
+  background-color: transparent;
+  border: 1px solid;
+  user-select: none;
+  cursor: pointer;
+  transition: all map-get(Core.$site, 'transition');
+
+  // Color variation
+  @each $key, $val in Core.$brand {
+    &--#{$key} {
+      color: $val;
+      border-color: $val;
+
+      @include Core.hover {
+        color: map-get(Core.$brand, 'white');
+        background-color: $val;
+      }
+    }
+  }
+}
+
+.container {
+  $padding: 35px;
+
+  padding: 0 $padding;
+  margin: auto;
+
+  // Create container breakpoints
+  @each $key, $val in Core.$breakpoint {
+    // Remove padding on xs breakpoint for seamless transition
+    $breakpoint-padding: null;
+    @if ($key == xs) {
+      $breakpoint-padding: 0;
+    } @else {
+      $breakpoint-padding: $padding * 2;
+    }
+
+    // Output
+    @include Core.breakpoint($key) {
+      max-width: #{map-get(Core.$breakpoint, $key) - $breakpoint-padding};
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@use '@core' as Core;
+
+#likeAnim {
+  position: absolute;
+  top: 29px;
+  right: 28px;
+  z-index: 1;
+  path {
+    $color: 'gold';
+    fill: map-get(Core.$brand, $color);
+    stroke: map-get(Core.$brand, $color);
+  }
+}

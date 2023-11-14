@@ -1,0 +1,107 @@
+@use '@core' as Core;
+
+.grid_masonry_2 {
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 52%;
+    left: 0;
+    height: 110%;
+    width: 100vw;
+    background-image: url('@images/background-shapes.png');
+    background-position: center top;
+    opacity: 0.04;
+    z-index: -1;
+    @include Core.breakpoint(md) {
+      top: 65%;
+      height: 43%;
+    }
+    @include Core.breakpoint(lg) {
+      height: 57%;
+    }
+  }
+
+  &-more {
+    margin-top: 2em;
+    @include Core.breakpoint(md) {
+      grid-area: btn;
+    }
+  }
+
+  .container {
+    position: relative;
+    display: grid;
+    gap: 2em;
+    @include Core.breakpoint(md) {
+      gap: 2.7em 3.8em;
+      grid-template-areas:
+        'intro auto'
+        'intro car2'
+        'car1 car2'
+        'car1 car3'
+        'btn car3';
+    }
+    @include Core.breakpoint(md) {
+      grid-template-rows: 1fr 0.4fr 1fr 1fr 0.5fr;
+    }
+    @include Core.breakpoint(lg) {
+      grid-template-rows: 150px 0.4fr 1fr 1fr 0.5fr;
+    }
+    @include Core.breakpoint(xl) {
+      grid-template-rows: 125px 0.4fr 1fr 1fr 0.5fr;
+    }
+  }
+
+  .content_container {
+    padding-left: 20px;
+    position: relative;
+    font-size: map-get(Core.$site, 'font-size--m');
+    @include Core.breakpoint(md) {
+      padding-left: 12%;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      height: 1px;
+      width: 45px;
+      top: 25%;
+      left: 0;
+      transform: translateX(-100%);
+      background-color: darken(
+        desaturate(map-get(Core.$brand, 'grey'), 5.91),
+        16.86
+      );
+      @include Core.breakpoint(md) {
+        transform: none;
+        width: 8%;
+      }
+    }
+  }
+
+  [data-item-index='0'] {
+    @include Core.breakpoint(md) {
+      grid-area: intro;
+    }
+  }
+
+  [data-item-index='1'] {
+    @include Core.breakpoint(md) {
+      grid-area: car1;
+    }
+  }
+
+  [data-item-index='2'] {
+    @include Core.breakpoint(md) {
+      grid-area: car2;
+    }
+  }
+
+  [data-item-index='3'] {
+    @include Core.breakpoint(md) {
+      grid-area: car3;
+    }
+  }
+}

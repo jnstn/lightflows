@@ -37,10 +37,11 @@ const IndexPage = () => {
         <GridMasonry2
           data={carsData.response}
           status={carsData.status}
+          showMore={true}
         >
           {/* Introduction Grid Element */}
           <h1>Vehicles</h1>
-          <div className="md:ml-[109px] md:mb-[200px]">
+          <div className="content_container">
             <p>
               Welcome to Prestige Porsche, a beacon of luxury and dynamism in
               the automotive world. As the authorised Porsche dealers, we are

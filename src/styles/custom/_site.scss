@@ -5,9 +5,11 @@
 body {
   font-size: map-get(Core.$site, 'font-size--m');
   font-family: map-get(Core.$site, 'font-body');
-  color: map-get(Core.$brand, 'black');
-  line-height: 1.2;
+  color: map-get(Core.$brand, 'platinum-medium');
+  line-height: 1.57;
   background-color: map-get(Core.$brand, 'grey');
+  font-weight: 300;
+  @extend %antialias;
   @include Core.breakpoint(md) {
     font-size: map-get(Core.$site, 'font-size--d');
   }
@@ -25,7 +27,46 @@ button {
   }
 }
 
+h1,
+h2 {
+  font-family: map-get(Core.$site, 'font-heading');
+  color: map-get(Core.$brand, 'platinum-dark');
+  line-height: 1.5;
+  margin-bottom: 0.55em;
+}
+
+h1 {
+  font-size: 2.4em;
+  line-height: 1.9;
+  @extend %margin-none--frist_last;
+}
+
+h2 {
+  font-size: 1.2em;
+  @extend %margin-none--frist_last;
+  @include Core.breakpoint(md) {
+    font-size: 1.4em;
+  }
+}
+
+h3 {
+  font-size: 0.94em;
+  color: map-get(Core.$brand, 'platinum');
+  margin-bottom: 0.71em;
+  @extend %margin-none--frist_last;
+}
+
 img,
 svg {
+  display: block;
   max-width: 100%;
+}
+
+main {
+  margin-bottom: 5em;
+}
+
+p {
+  margin: 1em 0;
+  @extend %margin-none--frist_last;
 }

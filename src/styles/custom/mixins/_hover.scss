@@ -1,7 +1,15 @@
-@mixin hover {
+@mixin hover($show_on_active_state: false) {
   @media (hover: hover) {
     &:hover {
       @content;
+    }
+  }
+
+  @if ($show_on_active_state == true or $show_on_active_state == 'true') {
+    @media (hover: none) {
+      &:active {
+        @content;
+      }
     }
   }
 }

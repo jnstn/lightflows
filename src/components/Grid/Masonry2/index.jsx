@@ -1,15 +1,17 @@
+import './style.scss';
 import React, { Children } from 'react';
 import { ThumbVehicle } from '@components';
 
 const showrooms = ['Guildford', 'London', 'Worcester'];
 
-const itemStyles = 'md:w-[48.5%]';
-
 // Render introduction text
 const introduction = children => {
   if (children) {
     return (
-      <div className={`grid_masonry_2-item ${itemStyles}`}>
+      <div
+        className={`grid_masonry_2-item`}
+        data-item-index="0"
+      >
         {Children.map(children, (child, index) => {
           return child;
         })}
@@ -25,13 +27,16 @@ const items = (status, data, hasIntroduction) => {
     case 'complete':
       return data.map((vehicle, index) => {
         data[index].showroom = showrooms[index];
-        const isEven = index + 1 + hasIntroduction > 2 ? true : false;
+        const itemIndex = index + hasIntroduction;
+        const isEven = itemIndex + 1 > 2 ? true : false;
+
         return (
           <ThumbVehicle
-            className={`grid_masonry_2-item ${itemStyles}`}
+            className={`grid_masonry_2-item`}
             data={vehicle}
             addMargin={isEven}
             key={index}
+            itemIndex={itemIndex}
           />
         );
       });
@@ -51,22 +56,28 @@ const items = (status, data, hasIntroduction) => {
   }
 };
 
-const GridMasonry2 = ({ status, data, children }) => {
+const showMoreBtn = show => {
+  console.log(show);
+  if (show) {
+    return (
+      <div className={`grid_masonry_2-item grid_masonry_2-more text--center`}>
+        <button className="btn btn--lg">View all cars</button>
+      </div>
+    );
+  }
+};
+
+const GridMasonry2 = ({ status, data, showMore, children }) => {
   const allVehicles = data ? data : false; // Empty data handler
   const hasIntroduction = !!children;
 
   return (
-    <section
-      className="
-        grid_masonry_2 container p-[32px] mx-auto mt-6.5 grid grid-cols-1 gap-[30px] 
-        md:flex md:flex-col md:flex-wrap md:h-[1037px] md:mb-[345px]
-        lg:h-[1221px] 
-        xl:h-[1410px]
-        2xl:h-[1592px]
-      "
-    >
-      {introduction(children)}
-      {items(status, allVehicles, hasIntroduction)}
+    <section className="grid_masonry_2">
+      <div className="container">
+        {introduction(children)}
+        {items(status, allVehicles, hasIntroduction)}
+        {showMoreBtn(showMore)}
+      </div>
     </section>
   );
 };

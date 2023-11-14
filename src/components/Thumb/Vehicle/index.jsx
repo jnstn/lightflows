@@ -1,3 +1,4 @@
+import './style.scss';
 import React from 'react';
 import iconEngine from '@images/icon-engine.svg';
 import iconGearbox from '@images/icon-gear.svg';
@@ -46,7 +47,7 @@ const attributes = array => {
     return (
       <span
         key={index}
-        className="thumb_vehicle-attr absolute top-[20px] left-[20px] text-[12px] bg-black text-white font-serif py-[10px] px-[12px] antialiased leading-1 select-none"
+        className="thumb_vehicle-attr"
       >
         {attr}
       </span>
@@ -65,37 +66,40 @@ const header = data => {
 
 const footer = data => {
   return (
-    <footer className="mt-[10px]">
-      <span className="block mb-[6px] md:inline-block md:mr-1">
+    <footer className="thumb_vehicle-footer">
+      <div className="thumb_vehicle-stat thumb_vehicle-engine">
         <img
-          className="inline-block w-[18px] h-[18px] mr-0.5"
+          className="thumb_vehicle-footer_icon"
           src={iconEngine}
           alt="Engine Icon"
         />
         {data.engine}
-      </span>
+      </div>
 
-      <span className="inline-block">
+      <div className="thumb_vehicle-stat thumb_vehicle-gearbox">
         <img
-          className="inline-block w-[18px] h-[18px] mr-0.5"
+          className="thumb_vehicle-footer_icon"
           src={iconGearbox}
           alt="Gearbox Icon"
         />
         {data.gearbox}
-      </span>
+      </div>
     </footer>
   );
 };
 
-const ThumbVehicle = ({ className = '', data, addMargin }) => {
+const ThumbVehicle = ({ className = '', data, addMargin, itemIndex }) => {
   const clsMarginTop = addMargin ? ' md:top-[10em]' : '';
 
   return (
-    <div className={`thumb_vehicle ${className}`}>
-      <figure className={`thumb_vehicle-offset relative${clsMarginTop}`}>
+    <div
+      className={`thumb_vehicle ${className}`}
+      data-item-index={itemIndex}
+    >
+      <figure className={`thumb_vehicle-offset${clsMarginTop}`}>
         {image(data.image_path)}
         {attributes(data.attributes)}
-        <figcaption className="bg-white pt-[20px] px-[30px] pb-[30px]">
+        <figcaption className="thumb_vehicle-info">
           {header(data)}
           {footer(data)}
         </figcaption>

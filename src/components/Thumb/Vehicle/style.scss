@@ -1,0 +1,54 @@
+@use '@core' as Core;
+
+.thumb_vehicle {
+  position: relative;
+
+  &-attr {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: map-get(Core.$site, 'font-heading');
+    font-size: map-get(Core.$site, 'font-size--m') - 3px;
+    color: map-get(Core.$brand, 'white');
+    line-height: 1;
+    padding: 0.85em 1em;
+    background-color: map-get(Core.$brand, 'black');
+    @extend %antialias;
+  }
+
+  &-footer {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    font-size: map-get(Core.$site, 'font-size--m') - 2px;
+    color: map-get(Core.$brand, 'platinum-dark');
+
+    * {
+      @extend %antialias;
+    }
+  }
+
+  &-footer_icon {
+    width: 18px;
+    height: auto;
+  }
+
+  &-info {
+    padding: 1.4em 2.14em 2em;
+    background-color: map-get(Core.$brand, 'white');
+  }
+
+  &-stat {
+    display: flex;
+    gap: 0.6em;
+    align-items: center;
+  }
+
+  h2 {
+    margin-bottom: 0.3em;
+  }
+
+  h3 {
+    margin-bottom: 0.8em;
+  }
+}

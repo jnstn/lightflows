@@ -4,10 +4,14 @@
   font-size: map-get(Core.$site, 'font-size--d') - 4;
   padding: 0.77em 1.18em;
   background-color: transparent;
-  border: 1px solid;
+  border: 1px solid #a9b4c4;
   user-select: none;
   cursor: pointer;
   transition: all map-get(Core.$site, 'transition');
+  @include Core.hover(true) {
+    color: map-get(Core.$brand, 'white');
+    background-color: #a9b4c4;
+  }
 
   // Color variation
   @each $key, $val in Core.$brand {
@@ -15,10 +19,24 @@
       color: $val;
       border-color: $val;
 
-      @include Core.hover {
+      @include Core.hover(true) {
         color: map-get(Core.$brand, 'white');
         background-color: $val;
       }
+    }
+  }
+
+  // Size Variation
+  $btn-sizes: (
+    'lg': (
+      'font-size': 1.13em,
+      'padding': 1.25em 1.13em,
+    ),
+  );
+  @each $key, $styles in $btn-sizes {
+    &--#{$key} {
+      font-size: map-get($styles, 'font-size');
+      padding: map-get($styles, 'padding');
     }
   }
 }
@@ -42,6 +60,21 @@
     // Output
     @include Core.breakpoint($key) {
       max-width: #{map-get(Core.$breakpoint, $key) - $breakpoint-padding};
+    }
+  }
+}
+
+$text-align: (
+  'center': center,
+  'left': start,
+  'start': start,
+  'right': end,
+  'end': end,
+);
+.text {
+  @each $key, $val in $text-align {
+    &--#{$key} {
+      text-align: $val;
     }
   }
 }

@@ -6,7 +6,7 @@ import { ThumbVehicleLike } from './Like';
 import { ThumbVehicleHeader } from './Header';
 import { ThumbVehicleFooter } from './Footer';
 
-const ThumbVehicle = ({ className = '', data, addMargin, itemIndex }) => {
+const ThumbVehicle = ({ className = '', data, itemIndex }) => {
   return (
     <figure
       className={`thumb_vehicle ${className}`}

@@ -28,13 +28,11 @@ const items = (status, data, hasIntroduction) => {
       return data.map((vehicle, index) => {
         data[index].showroom = showrooms[index];
         const itemIndex = index + hasIntroduction;
-        const isEven = itemIndex + 1 > 2 ? true : false;
 
         return (
           <ThumbVehicle
             className={`grid_masonry_2-item`}
             data={vehicle}
-            addMargin={isEven}
             key={index}
             itemIndex={itemIndex}
           />

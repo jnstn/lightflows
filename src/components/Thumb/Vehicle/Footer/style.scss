@@ -1,0 +1,26 @@
+@use '@core' as Core;
+
+.thumb_vehicle {
+  &-footer {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    font-size: map-get(Core.$site, 'font-size--m') - 2px;
+    color: map-get(Core.$brand, 'platinum-dark');
+
+    * {
+      @extend %antialias;
+    }
+  }
+
+  &-footer_icon {
+    width: 18px;
+    height: auto;
+  }
+
+  &-stat {
+    display: flex;
+    gap: 0.6em;
+    align-items: center;
+  }
+}

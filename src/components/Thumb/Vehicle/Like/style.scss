@@ -1,0 +1,28 @@
+@use '@core' as Core;
+
+.thumb_vehicle {
+  &-like {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    color: transparent;
+    border-radius: 999px;
+    background-color: map-get(Core.$brand, 'grey');
+    cursor: pointer;
+
+    svg path {
+      stroke: map-get(Core.$brand, 'gold');
+    }
+
+    &.active {
+      svg path {
+        fill: map-get(Core.$brand, 'gold');
+      }
+    }
+  }
+}

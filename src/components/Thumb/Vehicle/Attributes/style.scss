@@ -1,0 +1,16 @@
+@use '@core' as Core;
+
+.thumb_vehicle {
+  &-attr {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-family: map-get(Core.$site, 'font-heading');
+    font-size: map-get(Core.$site, 'font-size--m') - 3px;
+    color: map-get(Core.$brand, 'white');
+    line-height: 1;
+    padding: 0.85em 1em;
+    background-color: map-get(Core.$brand, 'black');
+    @extend %antialias;
+  }
+}

@@ -9,6 +9,18 @@ const carsApi = 'https://products.lfdev.co/api/cars';
 // IndexPage component: This functional component represents the main page of the application.
 const IndexPage = () => {
   const [carsData, setCarsData] = useState('none');
+  const [likedVehicles, setLikedVehicles] = useState([]);
+
+  // Store the list of liked vehicles
+  // This should update the Liked button in the navigation
+  const handleLiked = (action, id) => {
+    if (action === 'add') {
+      setLikedVehicles([...likedVehicles, id]);
+    }
+    if (action === 'remove') {
+      setLikedVehicles(likedVehicles.filter(entry => entry !== id));
+    }
+  };
 
   useEffect(() => {
     // Get API Data
@@ -32,12 +44,13 @@ const IndexPage = () => {
 
   return (
     <>
-      <NavPrimary />
+      <NavPrimary hasLikedVehicles={likedVehicles} />
       <main>
         <GridMasonry2
           data={carsData.response}
           status={carsData.status}
           showMore={true}
+          handleLiked={handleLiked}
         >
           {/* Introduction Grid Element */}
           <h1>Vehicles</h1>

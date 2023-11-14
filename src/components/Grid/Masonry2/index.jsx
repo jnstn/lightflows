@@ -21,7 +21,7 @@ const introduction = children => {
 };
 
 // Render all vehicle thumbnails
-const items = (status, data, hasIntroduction) => {
+const items = (status, data, hasIntroduction, handleLiked) => {
   switch (status) {
     // Show Vehicle Thumbnail
     case 'complete':
@@ -35,6 +35,7 @@ const items = (status, data, hasIntroduction) => {
             data={vehicle}
             key={index}
             itemIndex={itemIndex}
+            handleLiked={handleLiked}
           />
         );
       });
@@ -64,7 +65,7 @@ const showMoreBtn = show => {
   }
 };
 
-const GridMasonry2 = ({ status, data, showMore, children }) => {
+const GridMasonry2 = ({ status, data, showMore, children, handleLiked }) => {
   const allVehicles = data ? data : false; // Empty data handler
   const hasIntroduction = !!children;
 
@@ -72,7 +73,7 @@ const GridMasonry2 = ({ status, data, showMore, children }) => {
     <section className="grid_masonry_2">
       <div className="container">
         {introduction(children)}
-        {items(status, allVehicles, hasIntroduction)}
+        {items(status, allVehicles, hasIntroduction, handleLiked)}
         {showMoreBtn(showMore)}
       </div>
     </section>

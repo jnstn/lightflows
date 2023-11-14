@@ -63,6 +63,10 @@ $settings: (
 
   &-btn_like {
     @extend %align_middle;
+
+    &.active .nav_primary-liked svg path {
+      fill: map-get(Core.$brand, 'gold');
+    }
   }
 
   &-contact {

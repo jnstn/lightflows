@@ -1,16 +1,18 @@
 import './style.scss';
 import React, { useState } from 'react';
 
-const ThumbVehicleLike = () => {
+const ThumbVehicleLike = ({ itemIndex, handleLiked }) => {
   const [liked, setLiked] = useState(false);
   const activeCls = liked ? 'active' : 'inactive';
 
   const handleClick = () => {
     if (liked) {
       setLiked(false);
+      handleLiked('remove', itemIndex);
     }
     if (!liked) {
       setLiked(true);
+      handleLiked('add', itemIndex);
     }
   };
 

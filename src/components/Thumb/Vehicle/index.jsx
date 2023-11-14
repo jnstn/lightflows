@@ -6,7 +6,7 @@ import { ThumbVehicleLike } from './Like';
 import { ThumbVehicleHeader } from './Header';
 import { ThumbVehicleFooter } from './Footer';
 
-const ThumbVehicle = ({ className = '', data, itemIndex }) => {
+const ThumbVehicle = ({ className = '', data, itemIndex, handleLiked }) => {
   return (
     <figure
       className={`thumb_vehicle ${className}`}
@@ -14,7 +14,10 @@ const ThumbVehicle = ({ className = '', data, itemIndex }) => {
     >
       <ThumbVehicleImage path={data.image_path} />
       <ThumbVehicleAttributes data={data.attributes} />
-      <ThumbVehicleLike itemIndex={itemIndex} />
+      <ThumbVehicleLike
+        itemIndex={itemIndex}
+        handleLiked={handleLiked}
+      />
       <figcaption className="thumb_vehicle-info">
         <ThumbVehicleHeader data={data} />
         <ThumbVehicleFooter data={data} />

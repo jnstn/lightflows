@@ -2,7 +2,9 @@ import './style.scss';
 import React from 'react';
 import { ImageLogo, ImageMenu, ImageHeartUnfilled } from './Images';
 
-const NavPrimary = () => {
+const NavPrimary = ({ hasLikedVehicles }) => {
+  const likedActiveCls = hasLikedVehicles.length > 0 ? 'active' : 'inactive';
+
   return (
     <nav className="nav_primary">
       {/* Logo */}
@@ -21,7 +23,7 @@ const NavPrimary = () => {
         </button>
       </div>
 
-      <div className="nav_primary-btn_like">
+      <div className={`nav_primary-btn_like ${likedActiveCls}`}>
         <button
           className="nav_primary-liked"
           aria-label="Liked Products"

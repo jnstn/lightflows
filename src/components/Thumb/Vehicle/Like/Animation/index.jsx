@@ -7,7 +7,6 @@ const ThumbVehicleLikeAnimation = ({ init, duration }) => {
   const dur = duration / 1000;
   const heart = useRef(null);
   const largeScreen = window.innerWidth >= 768;
-  console.log(largeScreen);
 
   // Create Animation
   useLayoutEffect(() => {

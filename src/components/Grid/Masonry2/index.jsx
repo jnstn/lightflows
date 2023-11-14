@@ -57,7 +57,6 @@ const items = (status, data, hasIntroduction) => {
 };
 
 const showMoreBtn = show => {
-  console.log(show);
   if (show) {
     return (
       <div className={`grid_masonry_2-item grid_masonry_2-more text--center`}>

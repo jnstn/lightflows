@@ -1,9 +1,31 @@
 @use '@core' as Core;
 
-$sticky: false;
+// -------------------------------
+// Component Specific Placeholders
+// -------------------------------
+
+%hide_mobile {
+  display: none;
+  @include Core.breakpoint(md) {
+    display: block;
+  }
+}
+
+%align_middle {
+  display: flex;
+  align-items: center;
+}
+
+// ------------
+// Block Styles
+// ------------
+
+$settings: (
+  'sticky': false,
+);
 .nav_primary {
   // Ready for if feedback asks for a sticky nav
-  @if ($sticky == true) {
+  @if (map-get($settings, 'sticky') == true) {
     position: sticky;
     top: 0;
   }
@@ -11,14 +33,18 @@ $sticky: false;
   display: flex;
   padding: 25px 32px;
   margin-bottom: 48px;
-  gap: 2em;
+  gap: 1em;
   background-color: map-get(Core.$brand, 'white');
   @include Core.breakpoint(md) {
     padding: 2.1em 2.2em;
     margin-bottom: 102px;
   }
 
+  // Element Styles
+  // --------------
+
   &-about {
+    font-size: map-get(Core.$site, 'font-size--m') - 1;
     color: map-get(Core.$brand, 'platinum');
     cursor: pointer;
     transition: all map-get(Core.$site, 'transition');
@@ -27,8 +53,24 @@ $sticky: false;
     }
   }
 
+  &-about_us {
+    @extend %align_middle;
+    display: none;
+    @include Core.breakpoint(md) {
+      display: flex;
+    }
+  }
+
+  &-btn_like {
+    @extend %align_middle;
+  }
+
+  &-contact {
+    @extend %hide_mobile;
+  }
+
   &-liked {
-    margin-left: calc(1em + 2px);
+    margin-left: 1.5em;
     background-color: map-get(Core.$brand, 'grey');
     border-radius: 999px;
     width: 30px;
@@ -37,6 +79,9 @@ $sticky: false;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    @include Core.breakpoint(md) {
+      margin-left: 0;
+    }
 
     svg {
       path {
@@ -44,21 +89,6 @@ $sticky: false;
         stroke: map-get(Core.$brand, 'gold');
       }
     }
-  }
-
-  &-list {
-    display: none;
-    @extend %antialias;
-    @include Core.breakpoint(md) {
-      display: flex;
-      gap: calc(1em + 2px);
-      font-size: map-get(Core.$site, 'font-size--d') - 4;
-    }
-  }
-
-  &-list_item_left {
-    display: flex;
-    align-items: center;
   }
 
   &-logo {
@@ -75,13 +105,18 @@ $sticky: false;
     display: flex;
     height: 100%;
     align-items: center;
-    max-width: 27px;
+    width: 27px;
     @include Core.breakpoint(md) {
       display: none;
     }
 
     svg {
       width: 100%;
+      stroke: white;
+
+      path {
+        fill: map-get(Core.$brand, 'gold');
+      }
     }
   }
 }

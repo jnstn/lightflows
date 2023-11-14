@@ -12,6 +12,33 @@ const NavPrimary = () => {
         </a>
       </div>
 
+      <div className="nav_primary-about_us">
+        <button
+          className="nav_primary-about"
+          aria-label="About Us"
+        >
+          About Us
+        </button>
+      </div>
+
+      <div className="nav_primary-btn_like">
+        <button
+          className="nav_primary-liked"
+          aria-label="Liked Products"
+        >
+          <ImageHeartUnfilled />
+        </button>
+      </div>
+
+      <div className="nav_primary-contact">
+        <button
+          className="btn btn--gold"
+          aria-label="Contact Sales"
+        >
+          Contact Sales
+        </button>
+      </div>
+
       {/* Menu Icon */}
       <div className="nav_primary-menu">
         <button
@@ -21,33 +48,6 @@ const NavPrimary = () => {
           <ImageMenu />
         </button>
       </div>
-
-      {/* Menu List */}
-      <ul className="nav_primary-list">
-        <li className="nav_primary-list_item nav_primary-list_item_left">
-          <button
-            className="nav_primary-about"
-            aria-label="About Us"
-          >
-            About Us
-          </button>
-          <button
-            className="nav_primary-liked"
-            aria-label="Liked Products"
-          >
-            <ImageHeartUnfilled />
-          </button>
-        </li>
-
-        <li className="nav_primary-list_item">
-          <button
-            className="btn btn--gold"
-            aria-label="Contact Sales"
-          >
-            Contact Sales
-          </button>
-        </li>
-      </ul>
     </nav>
   );
 };

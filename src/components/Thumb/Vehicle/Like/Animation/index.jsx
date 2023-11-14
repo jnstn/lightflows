@@ -6,10 +6,12 @@ import { CustomEase } from 'gsap/CustomEase';
 const ThumbVehicleLikeAnimation = ({ init, duration }) => {
   const dur = duration / 1000;
   const heart = useRef(null);
+  const largeScreen = window.innerWidth >= 768;
+  console.log(largeScreen);
 
   // Create Animation
   useLayoutEffect(() => {
-    if (init) {
+    if (init && largeScreen) {
       const tl = gsap.timeline();
       const clickedHeart = heart.current;
       const navHeart =
@@ -42,7 +44,7 @@ const ThumbVehicleLikeAnimation = ({ init, duration }) => {
     }
   });
 
-  if (init) {
+  if (init && largeScreen) {
     return (
       <svg
         id="likeAnim"

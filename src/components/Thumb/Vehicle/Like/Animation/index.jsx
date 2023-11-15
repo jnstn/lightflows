@@ -2,6 +2,7 @@ import './style.scss';
 import React, { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/CustomEase';
+gsap.registerPlugin(CustomEase);
 
 const ThumbVehicleLikeAnimation = ({ init, duration }) => {
   const dur = duration / 1000;

@@ -5,20 +5,22 @@
     content: '';
     position: absolute;
     display: block;
-    top: 52%;
+    top: 630px;
     left: 0;
-    height: 110%;
+    height: 940px;
     width: 100vw;
     background-image: url('@images/background-shapes.png');
+    background-size: 80px;
     background-position: center top;
     opacity: 0.04;
     z-index: -1;
     @include Core.breakpoint(md) {
-      top: 65%;
-      height: 43%;
+      top: 760px;
+      height: 445px;
     }
     @include Core.breakpoint(lg) {
-      height: 57%;
+      top: 710px;
+      height: 640px;
     }
   }
 

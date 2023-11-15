@@ -14,14 +14,21 @@
     border-radius: 999px;
     background-color: map-get(Core.$brand, 'grey');
     cursor: pointer;
+    box-shadow: 0 0 20px rgba(black, 0.1);
 
-    svg path {
-      stroke: map-get(Core.$brand, 'gold');
+    svg {
+      position: relative;
+      top: 1px;
+
+      path {
+        stroke: map-get(Core.$brand, 'platinum');
+      }
     }
 
     &.active {
       svg path {
         fill: map-get(Core.$brand, 'gold');
+        stroke: map-get(Core.$brand, 'gold');
       }
     }
   }
